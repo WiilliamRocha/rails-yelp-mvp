@@ -9,3 +9,18 @@
 <%= link_to 'back to restaurants', restaurants_path %> |
 <%= link_to 'update restaurant', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'delete', restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: 'voce quer destruir o seu negocio?' } %>
+
+
+  <h2>Reviews</h2>
+
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= review.content %>
+        <%= link_to 'Remove', review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add new review', new_restaurant_review_path(@restaurant) %>
+</div>

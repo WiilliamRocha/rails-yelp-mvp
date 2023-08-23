@@ -5,6 +5,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def review
+    @restaurants = Restaurant.where(review: 5)
+  end
+
   def show
   end
 
